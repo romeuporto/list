@@ -14,7 +14,17 @@ class _HomeState extends State<Home> {
       ),
       body: Container(
         padding: EdgeInsets.all(20),
-        child: ,
+        child: ListView.builder(
+            itemCount: 5,
+            itemBuilder: (context, indice){
+              print("item ${indice}");
+
+              return ListTile(
+                title: Text(indice.toString()),
+                subtitle: Text("subtitulo"),
+              );
+            }
+        ),
       )
     );
   }
