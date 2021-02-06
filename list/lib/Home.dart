@@ -15,13 +15,12 @@ class _HomeState extends State<Home> {
       item["descricao"] = "Descrição ${i} Lorem ipsum dolor sit amet.";
       _itens.add(item);
     }
-
   }
-
-
 
   @override
   Widget build(BuildContext context) {
+
+    _carregarItens();
     return Scaffold(
       appBar: AppBar(
         title: Text("Lista"),
@@ -29,9 +28,10 @@ class _HomeState extends State<Home> {
       body: Container(
         padding: EdgeInsets.all(20),
         child: ListView.builder(
-            itemCount: 5,
+            itemCount: _itens.length,
             itemBuilder: (context, indice){
-              print("item ${indice}");
+              Map<String, dynamic> item = _itens[indice];
+              print("item ${_itens[indice].toString()}");
 
               return ListTile(
                 title: Text(indice.toString()),
