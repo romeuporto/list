@@ -9,6 +9,7 @@ class _HomeState extends State<Home> {
 
   List _itens = [];
   void _carregarItens(){
+    _itens = [];
     for(int i=0; i<=10; i++){
       Map<String, dynamic> item = Map();
       item["titulo"] = "Título ${i} Lorem ipsum dolor sit amet.";
@@ -30,12 +31,12 @@ class _HomeState extends State<Home> {
         child: ListView.builder(
             itemCount: _itens.length,
             itemBuilder: (context, indice){
-              Map<String, dynamic> item = _itens[indice];
-              print("item ${_itens[indice].toString()}");
+              //Map<String, dynamic> item = _itens[indice];
+              //print("item ${_itens[indice].toString()}");
 
               return ListTile(
-                title: Text(indice.toString()),
-                subtitle: Text("subtitulo"),
+                title: Text(_itens[indice]["titulo"]),
+                subtitle: Text(_itens[indice]["descricao"]),
               );
             }
         ),
