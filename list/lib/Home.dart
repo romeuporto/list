@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -41,7 +42,27 @@ class _HomeState extends State<Home> {
                     builder: (context) {
                       return AlertDialog(
                         title: Text(_itens[indice]["titulo"]),
+                        //titlePadding: EdgeInsets.all(50),
+                        titleTextStyle: TextStyle(
+                          fontSize: 20,
+                        ),
                         content: Text(_itens[indice]["descricao"]),
+                        actions: <Widget>[
+                          FlatButton(
+                            onPressed: (){
+                              print("Selecionado SIM");
+                              Navigator.pop(context);
+                            },
+                            child: Text("Sim"),
+                          ),
+                          FlatButton(
+                            onPressed: (){
+                              print("Selecionado NÃO");
+                              Navigator.pop(context);
+                            },
+                            child: Text("Não"),
+                          ),
+                        ],
                       );
                     }
                   );
